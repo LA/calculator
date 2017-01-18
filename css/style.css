@@ -13,12 +13,16 @@
     width: 85%;
     height: 45px;
     margin: auto;
+    font-size: 250%;
+    text-align: right;
+    padding-right: 2%;
 }
 
 #buttons {
     width: 81%;
     text-align: center;
     margin: 5% auto;
+    font-size: 260%;
 }
 
 .button {
@@ -28,10 +32,4 @@
     margin: 8px;
     box-shadow: 3px 3px;
     text-align: center;
-}
-
-#screen {
-    font-size: 250%;
-    text-align: right;
-    padding-right: 2%;
 }

@@ -13,7 +13,7 @@ var opEngaged = false;
 function keyPressed(key) {
     var current = getScreen("str");
     switch (key) {
-    case "AC":
+    case "C":
         opEngaged = false;
         prev = 0;
         now = 0;
@@ -35,6 +35,7 @@ function keyPressed(key) {
         $("#screen").html(current);
         now = current;
         opEngaged = false;
+        resetColors();
         break;
     }
 }
@@ -64,7 +65,6 @@ function handleOpPressed(op) {
     // If operator is already pressed, disable it.
     if (operatorPressed) {
         handleEqualPressed();
-        resetColors();
     }
 
     operatorPressed = (operatorPressed) ? undefined : op;
@@ -75,7 +75,6 @@ function handleOpPressed(op) {
 }
 
 function handleEqualPressed() {
-    console.log("Solving");
     var op = operatorPressed;
     var id = "#" + stringified[op];
     $(id).css("background-color", "red");
@@ -97,16 +96,13 @@ function handleEqualPressed() {
         break;
     }
 
-    console.log(op);
-    console.log(now);
-    console.log(prev);
     prev = results;
     $("#screen").html(results);
-    console.log(results);
     operatorPressed = undefined;
 }
 
 function getScreen(type) {
+    // Return screen contents as number or string.
     return (type == "num") ? Number($("#screen").html()) : $("#screen").html();
 }
 
@@ -117,4 +113,5 @@ function resetColors() {
     $("#" + stringified["-"]).css(prop, color);
     $("#" + stringified["*"]).css(prop, color);
     $("#" + stringified["/"]).css(prop, color);
+    // operatorPressed = undefined;
 }
